@@ -1,0 +1,146 @@
+//We always have to include the library
+#include "LedControl.h"
+LedControl lc=LedControl(12,11,10,1);
+
+/* we always wait a bit between updates of the display */
+unsigned long delaytime=250;
+
+void setup() {
+  /*
+   The MAX72XX is in power-saving mode on startup,
+   we have to do a wakeup call
+   */
+  lc.shutdown(0,false);
+  /* Set the brightness to a medium values */
+  lc.setIntensity(0,8);
+  /* and clear the display */
+  lc.clearDisplay(0);
+}
+
+void loop() {
+  lc.setRow(0,0,B00011000);
+  delay(delaytime);
+  lc.setRow(0,1,B00011000);
+  delay(delaytime);
+  lc.setRow(0,2,B00011000);
+  delay(delaytime);
+  lc.setRow(0,3,B00100100);
+  delay(delaytime);
+  lc.setRow(0,4,B01100110);
+  delay(delaytime);
+  lc.setRow(0,5,B01100110);
+  delay(delaytime);
+  lc.setRow(0,6,B11000011);
+  delay(delaytime);
+  lc.setRow(0,7,B10000001);
+  delay(delaytime);
+  lc.clearDisplay(0);
+  
+  lc.setRow(0,0,B11011000);
+  delay(delaytime);
+  lc.setRow(0,1,B11011000);
+  delay(delaytime);
+  lc.setRow(0,2,B11111111);
+  delay(delaytime);
+  lc.setRow(0,3,B00011000);
+  delay(delaytime);
+  lc.setRow(0,4,B11111111);
+  delay(delaytime);
+  lc.setRow(0,5,B00011000);
+  delay(delaytime);
+  lc.setRow(0,6,B00011000);
+  delay(delaytime);
+  lc.setRow(0,7,B11111111);
+  delay(delaytime);
+  lc.clearDisplay(0);
+  
+  lc.setRow(0,0,B11001111);
+  delay(delaytime);
+  lc.setRow(0,1,100100001);
+  delay(delaytime);
+  lc.setRow(0,2,B10101101);
+  delay(delaytime);
+  lc.setRow(0,3,B11001101);
+  delay(delaytime);
+  lc.setRow(0,4,B10000001);
+  delay(delaytime);
+  lc.setRow(0,5,B10000001);
+  delay(delaytime);
+  lc.setRow(0,6,B10000101);
+  delay(delaytime);
+  lc.setRow(0,7,B10000011);
+  delay(delaytime);
+  lc.clearDisplay(0);
+  
+  lc.setRow(0,0,B01111111);
+  delay(delaytime);
+  lc.setRow(0,1,B11000001);
+  delay(delaytime);
+  lc.setRow(0,2,B10000011);
+  delay(delaytime);
+  lc.setRow(0,3,B11111110);
+  delay(delaytime);
+  lc.setRow(0,4,B10000000);
+  delay(delaytime);
+  lc.setRow(0,5,B10000000);
+  delay(delaytime);
+  lc.setRow(0,6,B10000000);
+  delay(delaytime);
+  lc.setRow(0,7,B10000000);
+  delay(delaytime);
+  lc.clearDisplay(0);
+
+  lc.setRow(0,0,B01111110);
+  delay(delaytime);
+  lc.setRow(0,1,B11000011);
+  delay(delaytime);
+  lc.setRow(0,2,B10000001);
+  delay(delaytime);
+  lc.setRow(0,3,B10000001);
+  delay(delaytime);
+  lc.setRow(0,4,B10000001);
+  delay(delaytime);
+  lc.setRow(0,5,B10000001);
+  delay(delaytime);
+  lc.setRow(0,6,B11000011);
+  delay(delaytime);
+  lc.setRow(0,7,B01111110);
+  delay(delaytime);
+  lc.clearDisplay(0);
+
+   lc.setRow(0,0,B01111110);
+  delay(delaytime);
+  lc.setRow(0,1,B11000011);
+  delay(delaytime);
+  lc.setRow(0,2,B10000001);
+  delay(delaytime);
+  lc.setRow(0,3,B10000001);
+  delay(delaytime);
+  lc.setRow(0,4,B10000001);
+  delay(delaytime);
+  lc.setRow(0,5,B10000001);
+  delay(delaytime);
+  lc.setRow(0,6,B11000011);
+  delay(delaytime);
+  lc.setRow(0,7,B01111110);
+  delay(delaytime);
+  lc.clearDisplay(0);
+
+   lc.setRow(0,0,B11111100);
+  delay(delaytime);
+  lc.setRow(0,1,B10000110);
+  delay(delaytime);
+  lc.setRow(0,2,B10000011);
+  delay(delaytime);
+  lc.setRow(0,3,B11111111);
+  delay(delaytime);
+  lc.setRow(0,4,B10100000);
+  delay(delaytime);
+  lc.setRow(0,5,B10110000);
+  delay(delaytime);
+  lc.setRow(0,6,B10010000);
+  delay(delaytime);
+  lc.setRow(0,7,B100    11000);
+  delay(delaytime);
+  lc.clearDisplay(0);
+} 

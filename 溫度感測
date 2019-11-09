@@ -1,0 +1,37 @@
+#include <OneWire.h>
+#include<DallasTemperature.h>
+#define ONE_WIRE_BUS 2
+int ledb=5;
+int ledg=4;
+int ledr=3;
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+void setup(void){
+  Serial.begin(115200);
+  Serial.println("Temrerature Sensor");
+  sensors.begin();
+  pinMode(ledb,OUTPUT);
+  pinMode(ledg,OUTPUT);
+  pinMode(ledr,OUTPUT);
+}
+void loop(void){
+  sensors.requestTemperatures();
+  Serial.println(sensors.getTempCByIndex(0));
+  int temp=sensors.getTempCByIndex(0);
+  delay(150);
+  if(temp<32){
+    digitalWrite(ledg,1);
+    digitalWrite(ledb,0);
+    digitalWrite(ledr,0);
+  }
+  else if(temp<35){
+     digitalWrite(ledg,0);
+    digitalWrite(ledb,1);
+    digitalWrite(ledr,0);
+  }
+  else if(temp>35){
+    digitalWrite(ledg,0);
+    digitalWrite(ledb,0);
+    digitalWrite(ledr,1);
+  }
+}

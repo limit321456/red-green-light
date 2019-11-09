@@ -1,0 +1,38 @@
+int inputPin=5;
+int outputPin=4;
+void setup (){
+  Serial.begin(9600);
+  pinMode(inputPin,INPUT);
+  pinMode(outputPin,OUTPUT);
+  pinMode(13,OUTPUT);
+}
+void loop(){
+  digitalWrite(outputPin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(outputPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(outputPin,LOW);
+  float t=pulseIn(inputPin,HIGH);
+  float distance=t/58.0;
+  Serial.println(distance);
+  delay(100);
+
+  if (distance<=30&&distance>20){
+  tone(13,784);
+  delay(1000);
+  noTone(13);
+  delay(1000);
+}
+else if (distance>40){
+  noTone(13);
+}
+else if(distance<=20&&distance>10){
+ tone(13,784);
+  delay(250);
+  noTone(13);
+  delay(250); }
+  else {
+    tone(13,784);
+  }
+}
+ 

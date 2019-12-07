@@ -1,0 +1,177 @@
+int inputPin=5;
+int outputPin=4;
+void setup() {
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(9,OUTPUT); //之前的4腳位
+  pinMode(10,OUTPUT); //之前的5腳位
+  Serial.begin(9600);
+  pinMode(inputPin,INPUT);
+  pinMode(outputPin,OUTPUT);
+  }
+  void loop() {
+    digitalWrite(outputPin,LOW);
+    delayMicroseconds(2);
+    digitalWrite(outputPin,HIGH);
+    delayMicroseconds(10);
+    digitalWrite(outputPin,LOW);
+    float t=pulseIn(inputPin,HIGH);
+    float distance=t/58.0;
+    Serial.println(distance);
+    delay(50);
+  if(distance>255)//Error
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,0);
+  digitalWrite(6,1);
+  digitalWrite(7,1);
+  digitalWrite(8,1);
+  digitalWrite(9,0);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,1482);
+ delay(1000);
+  }
+  else if (distance<=255&&distance>220)//9
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,1);
+  digitalWrite(6,0);
+  digitalWrite(7,1);
+  digitalWrite(8,1);
+  digitalWrite(9,1);
+  digitalWrite(10,0);
+  delay(10);
+  tone(11,988);
+ delay(1000);
+ noTone(11);
+  } 
+  else if (distance<=220&&distance>190)//8
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,1);
+  digitalWrite(6,1);
+  digitalWrite(7,1);
+  digitalWrite(8,1);
+  digitalWrite(9,1);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,988);
+ delay(500);
+ noTone(11);
+  }
+  else if (distance<=190&&distance>160)//7
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,1);
+  digitalWrite(6,0);
+  digitalWrite(7,0);
+  digitalWrite(8,0);
+  digitalWrite(9,1);
+  digitalWrite(10,0);
+  delay(10);
+  tone(11,988);
+ delay(100);
+ noTone(11);
+  }
+  else if (distance<=160&&distance>130)//6
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,0);
+  digitalWrite(6,1);
+  digitalWrite(7,1);
+  digitalWrite(8,1);
+  digitalWrite(9,1);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,1976);
+ delay(1000);
+ noTone(11);
+  }
+  else if (distance<=130&&distance>100)//5
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,0);
+  digitalWrite(6,0);
+  digitalWrite(7,1);
+  digitalWrite(8,1);
+  digitalWrite(9,1);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,1976);
+ delay(500);
+ noTone(11);
+  }
+  else if (distance<=100&&distance>70)//4
+  {
+  digitalWrite(2,0);
+  digitalWrite(3,1);
+  digitalWrite(6,0);
+  digitalWrite(7,1);
+  digitalWrite(8,1);
+  digitalWrite(9,1);
+  digitalWrite(10,0);
+  delay(10);
+  tone(11,1976);
+ delay(100);
+ noTone(11);
+  }
+  else if (distance<=70&&distance>50)//3
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,1);
+  digitalWrite(6,0);
+  digitalWrite(7,0);
+  digitalWrite(8,1);
+  digitalWrite(9,1);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,3952);
+ delay(1000);
+ noTone(11);
+  }
+  else if (distance<=50&&distance>30)//2
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,1);
+  digitalWrite(6,1);
+  digitalWrite(7,0);
+  digitalWrite(8,1);
+  digitalWrite(9,0);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,3952);
+ delay(500);
+ noTone(11);
+  }
+  else if (distance<=30&&distance>10)//1
+  {
+  digitalWrite(2,0);
+  digitalWrite(3,1);
+  digitalWrite(6,0);
+  digitalWrite(7,0);
+  digitalWrite(8,0);
+  digitalWrite(9,1);
+  digitalWrite(10,0);
+  delay(10);
+  tone(11,3952);
+ delay(100);
+ noTone(11);
+  }
+  else                                                                                                                                                                                                                                                                                                                                                         //0
+  {
+  digitalWrite(2,1);
+  digitalWrite(3,1);
+  digitalWrite(6,1);
+  digitalWrite(7,1);
+  digitalWrite(8,0);
+  digitalWrite(9,1);
+  digitalWrite(10,1);
+  delay(10);
+  tone(11,3952);
+ delay(1000);
+  }
+  }
